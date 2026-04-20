@@ -1,0 +1,210 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
+    <Style src="VictoriaDashboard.uss" />
+    <ui:VisualElement name="dashboard-root" class="dashboard-root">
+
+        <!-- ========== TOP STATUS BAR (Vic2 chrome) ========== -->
+        <ui:VisualElement name="top-bar" class="top-bar">
+            <ui:VisualElement class="status-country-card">
+                <ui:VisualElement class="country-shield" />
+                <ui:VisualElement class="country-card-text">
+                    <ui:Label name="country-name-label" class="status-country-name" text="-" />
+                    <ui:Label name="country-stats-label" class="status-country-stats" text="Treasury: -   Tax: -" />
+                </ui:VisualElement>
+                <ui:Button name="explain-country-button" class="button gold-button small explain-button" text="Why?" tooltip="Explain country budget" />
+            </ui:VisualElement>
+
+            <ui:VisualElement class="status-metrics">
+                <ui:VisualElement class="status-metric">
+                    <ui:Label class="status-metric-label" text="DATE" />
+                    <ui:Label name="date-label" class="status-metric-value" text="-" />
+                </ui:VisualElement>
+                <ui:VisualElement class="status-metric">
+                    <ui:Label class="status-metric-label" text="TICK" />
+                    <ui:Label name="tick-label" class="status-metric-value" text="-" />
+                </ui:VisualElement>
+                <ui:VisualElement class="status-metric">
+                    <ui:Label class="status-metric-label" text="REFORM" />
+                    <ui:Label name="reform-pressure-label" class="status-metric-value" text="-" tooltip="Reform pressure: weighted militancy + consciousness + unemployment + unmet needs (0-100)" />
+                </ui:VisualElement>
+                <ui:VisualElement class="status-metric">
+                    <ui:Label class="status-metric-label" text="LINK" />
+                    <ui:Label name="connection-label" class="status-metric-value status-warn" text="Disconnected" />
+                </ui:VisualElement>
+                <ui:VisualElement class="status-metric">
+                    <ui:Label class="status-metric-label" text="PLAYER" />
+                    <ui:Label name="user-label" class="status-metric-value" text="-" />
+                </ui:VisualElement>
+                <ui:Button name="refresh-button" class="button gold-button small" text="Refresh" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+
+        <!-- ========== TAB STRIP (Vic2 view tabs) ========== -->
+        <ui:VisualElement class="tab-strip">
+            <ui:Button name="tab-production" class="tab tab-active" text="PRODUCTION" />
+            <ui:Button name="tab-budget" class="tab" text="BUDGET" />
+            <ui:Button name="tab-technology" class="tab" text="TECHNOLOGY" />
+            <ui:Button name="tab-politics" class="tab" text="POLITICS" />
+            <ui:Button name="tab-population" class="tab" text="POPULATION" />
+            <ui:Button name="tab-trade" class="tab" text="TRADE" />
+            <ui:Button name="tab-diplomacy" class="tab" text="DIPLOMACY" />
+            <ui:Button name="tab-military" class="tab" text="MILITARY" />
+        </ui:VisualElement>
+
+        <!-- ========== MAIN GRID ========== -->
+        <ui:VisualElement class="main-grid">
+
+            <!-- LEFT OUTLINER COLUMN -->
+            <ui:VisualElement class="column column-left">
+                <ui:VisualElement class="panel provinces-panel tab-production">
+                    <ui:VisualElement class="panel-header">
+                        <ui:Label class="panel-title" text="PROVINCES" />
+                    </ui:VisualElement>
+                    <ui:VisualElement class="button-row compact toolbar">
+                        <ui:TextField name="province-search-field" class="province-search-field" />
+                        <ui:Button name="filter-mine-button" class="button secondary small" text="Mine" />
+                        <ui:Button name="clear-filter-button" class="button secondary small" text="All" />
+                        <ui:Button name="sort-name-button" class="button secondary small" text="A-Z" />
+                        <ui:Button name="sort-population-button" class="button secondary small" text="Pop" />
+                    </ui:VisualElement>
+                    <ui:ScrollView name="province-list" class="province-list" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+
+            <!-- CENTER MAIN CONTENT COLUMN -->
+            <ui:VisualElement class="column column-center">
+                <ui:VisualElement name="province-detail-panel" class="panel province-detail-panel tab-production">
+                    <ui:VisualElement class="panel-header">
+                        <ui:Label class="panel-title" text="PROVINCE" />
+                        <ui:Button name="explain-province-button" class="button gold-button small explain-button" text="Why?" tooltip="Explain province employment" />
+                    </ui:VisualElement>
+                    <ui:Label name="province-title-label" class="headline" text="Select a province" />
+                    <ui:ScrollView name="province-info-scroll" class="province-info-scroll">
+                        <ui:Label name="province-info-label" class="body" text="" />
+                    </ui:ScrollView>
+                    <ui:Label name="construction-options-label" class="body muted helper-label" text="" />
+                    <ui:VisualElement class="button-row">
+                        <ui:Button name="build-farm-button" class="button secondary" text="Farm" />
+                        <ui:Button name="build-mine-button" class="button secondary" text="Mine" />
+                        <ui:Button name="build-workshop-button" class="button secondary" text="Workshop" />
+                    </ui:VisualElement>
+                    <ui:Label name="construction-label" class="body muted" text="Construction: -" />
+                </ui:VisualElement>
+
+                <ui:VisualElement class="panel pops-panel tab-production tab-population">
+                    <ui:VisualElement class="panel-header">
+                        <ui:Label class="panel-title" text="POPULATION" />
+                    </ui:VisualElement>
+                    <ui:VisualElement class="pop-slicer">
+                        <ui:VisualElement class="pop-slicer-row">
+                            <ui:Label class="pop-slicer-label" text="GROUP BY" />
+                            <ui:Button name="pop-group-by-type-button" class="button secondary small pop-group-by-button pop-group-by-active" text="Type" />
+                            <ui:Button name="pop-group-by-culture-button" class="button secondary small pop-group-by-button" text="Culture" />
+                            <ui:Button name="pop-group-by-religion-button" class="button secondary small pop-group-by-button" text="Religion" />
+                            <ui:Button name="pop-group-by-strata-button" class="button secondary small pop-group-by-button" text="Strata" />
+                            <ui:Button name="pop-group-by-province-button" class="button secondary small pop-group-by-button" text="Province" />
+                        </ui:VisualElement>
+                        <ui:VisualElement class="pop-slicer-row">
+                            <ui:Label class="pop-slicer-label" text="FILTER" />
+                            <ui:DropdownField name="pop-filter-type" class="pop-filter-dropdown" label="Type" />
+                            <ui:DropdownField name="pop-filter-culture" class="pop-filter-dropdown" label="Culture" />
+                            <ui:DropdownField name="pop-filter-religion" class="pop-filter-dropdown" label="Religion" />
+                            <ui:DropdownField name="pop-filter-strata" class="pop-filter-dropdown" label="Strata" />
+                            <ui:Button name="pop-filter-clear-button" class="button secondary small" text="Clear" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:ScrollView name="pop-summary-scroll" class="pop-summary-scroll">
+                        <ui:Label name="pop-summary-label" class="body" text="National POPs: -" />
+                    </ui:ScrollView>
+                </ui:VisualElement>
+            </ui:VisualElement>
+
+            <!-- RIGHT MANAGEMENT COLUMN -->
+            <ui:VisualElement class="column column-right">
+                <ui:VisualElement class="panel budget-panel tab-production tab-budget">
+                    <ui:VisualElement class="panel-header">
+                        <ui:Label class="panel-title" text="BUDGET" />
+                        <ui:Button name="explain-budget-button" class="button gold-button small explain-button" text="Why?" tooltip="Explain country budget" />
+                    </ui:VisualElement>
+                    <ui:ScrollView name="budget-scroll" class="budget-scroll">
+                        <ui:Label name="budget-summary-label" class="body" text="Budget: -" />
+                        <ui:Label name="budget-effects-label" class="body muted helper-label" text="" />
+                        <ui:VisualElement class="control-grid">
+                            <ui:Button name="flat-tax-down-button" class="button secondary" text="Flat -" />
+                            <ui:Button name="flat-tax-up-button" class="button secondary" text="Flat +" />
+                            <ui:Button name="poor-tax-down-button" class="button secondary" text="Poor -" />
+                            <ui:Button name="poor-tax-up-button" class="button secondary" text="Poor +" />
+                            <ui:Button name="middle-tax-down-button" class="button secondary" text="Mid -" />
+                            <ui:Button name="middle-tax-up-button" class="button secondary" text="Mid +" />
+                            <ui:Button name="rich-tax-down-button" class="button secondary" text="Rich -" />
+                            <ui:Button name="rich-tax-up-button" class="button secondary" text="Rich +" />
+                            <ui:Button name="education-down-button" class="button secondary" text="Edu -" />
+                            <ui:Button name="education-up-button" class="button secondary" text="Edu +" />
+                            <ui:Button name="military-down-button" class="button secondary" text="Mil -" />
+                            <ui:Button name="military-up-button" class="button secondary" text="Mil +" />
+                            <ui:Button name="administration-down-button" class="button secondary" text="Adm -" />
+                            <ui:Button name="administration-up-button" class="button secondary" text="Adm +" />
+                        </ui:VisualElement>
+                        <ui:VisualElement class="budget-status-list">
+                            <ui:Label name="flat-tax-state-label" class="body budget-state-row budget-state-idle" text="Flat tax: authoritative" />
+                            <ui:Label name="poor-tax-state-label" class="body budget-state-row budget-state-idle" text="Poor tax: authoritative" />
+                            <ui:Label name="middle-tax-state-label" class="body budget-state-row budget-state-idle" text="Middle tax: authoritative" />
+                            <ui:Label name="rich-tax-state-label" class="body budget-state-row budget-state-idle" text="Rich tax: authoritative" />
+                            <ui:Label name="education-state-label" class="body budget-state-row budget-state-idle" text="Education spending: authoritative" />
+                            <ui:Label name="military-state-label" class="body budget-state-row budget-state-idle" text="Military spending: authoritative" />
+                            <ui:Label name="administration-state-label" class="body budget-state-row budget-state-idle" text="Administration spending: authoritative" />
+                        </ui:VisualElement>
+                        <ui:Label name="command-status-label" class="body muted" text="" />
+                    </ui:ScrollView>
+                </ui:VisualElement>
+
+                <ui:VisualElement class="panel military-panel tab-production tab-military tab-diplomacy">
+                    <ui:VisualElement class="panel-header">
+                        <ui:Label class="panel-title" text="MILITARY" />
+                        <ui:VisualElement class="header-actions">
+                            <ui:Button name="explain-war-button" class="button gold-button small explain-button" text="Why?" tooltip="Explain active war" />
+                            <ui:Button name="refresh-military-button" class="button secondary small" text="Refresh" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:Label name="military-summary-label" class="body military-summary" text="No armies loaded." />
+                    <ui:ScrollView name="army-list" class="army-list" />
+                    <ui:Label name="military-selection-label" class="body military-selection" text="Select an army and a target province." />
+                    <ui:Label name="war-summary-label" class="body war-summary" text="No wars loaded." />
+                    <ui:VisualElement class="button-row military-actions">
+                        <ui:Button name="move-army-button" class="button secondary military-action-button" text="Move" />
+                        <ui:Button name="declare-war-button" class="button secondary military-action-button" text="War" />
+                        <ui:Button name="make-peace-button" class="button secondary military-action-button" text="Peace" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+
+        <!-- ========== PLACEHOLDER VIEWS (only visible on their tabs) ========== -->
+        <ui:VisualElement class="placeholder-grid">
+            <ui:VisualElement class="panel placeholder-panel tab-politics">
+                <ui:Label class="panel-title" text="POLITICS" />
+                <ui:Label name="politics-summary-label" class="headline" text="Reform pressure: -" />
+                <ui:Label name="politics-detail-label" class="body" text="Loading..." />
+                <ui:Label class="body muted helper-label" text="Parties, issues, ideologies, and reforms arrive in Month 7+. For now, this view shows the country-wide reform pressure score and what's driving it." />
+            </ui:VisualElement>
+            <ui:VisualElement class="panel placeholder-panel tab-technology">
+                <ui:Label class="panel-title" text="TECHNOLOGY" />
+                <ui:Label class="headline" text="Coming soon" />
+                <ui:Label class="body muted helper-label" text="Research trees, inventions, and tech effects are deferred per docs/vic2_basic_mechanics_mvp.md. The simulation does not currently track research." />
+            </ui:VisualElement>
+        </ui:VisualElement>
+
+        <!-- ========== BOTTOM ALERT/MESSAGES STRIP (Vic2 message log) ========== -->
+        <ui:VisualElement class="bottom-strip">
+            <ui:VisualElement class="panel market-panel bottom-panel tab-production tab-trade">
+                <ui:Label class="panel-title" text="MARKET" />
+                <ui:ScrollView name="market-list" class="scroll-list horizontal-list" />
+            </ui:VisualElement>
+            <ui:VisualElement class="panel event-feed-panel bottom-panel">
+                <ui:Label class="panel-title" text="EVENT LOG" />
+                <ui:Label name="event-feed-summary-label" class="body muted helper-label" text="No events loaded." />
+                <ui:ScrollView name="event-feed-list" class="event-feed-list" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+
+    </ui:VisualElement>
+</ui:UXML>

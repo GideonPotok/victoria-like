@@ -1,0 +1,16 @@
+; Engine configuration file.
+; Open this project with the Godot .NET editor.
+
+config_version=5
+
+[application]
+config/name="VictoriaLike"
+run/main_scene="res://src/VictoriaLike.Game/Presentation/Main.tscn"
+config/features=PackedStringArray("4.6", "C#", "Forward Plus")
+
+[display]
+window/size/viewport_width=1600
+window/size/viewport_height=900
+
+[rendering]
+renderer/rendering_method="forward_plus"

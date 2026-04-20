@@ -1,0 +1,97 @@
+{
+  "seed": 18367,
+  "startDate": "1836-01-01",
+  "countries": [
+    {
+      "id": "albion",
+      "displayName": "Albion",
+      "provinceIds": ["northshire", "ironvale"],
+      "treasury": 5000,
+      "taxRate": 0.22,
+      "tariffRate": 0.08,
+      "isPlayable": true,
+      "stockpile": {
+        "grain": 180,
+        "fish": 80,
+        "iron": 30,
+        "coal": 20,
+        "tools": 10
+      }
+    }
+  ],
+  "provinces": [
+    {
+      "id": "northshire",
+      "displayName": "Northshire",
+      "ownerId": "albion",
+      "populationIds": ["northshire-farmers"],
+      "outputsPerTick": {
+        "grain": 85,
+        "fish": 18
+      },
+      "stockpile": {
+        "grain": 70,
+        "fish": 25
+      },
+      "infrastructure": 0.35
+    },
+    {
+      "id": "ironvale",
+      "displayName": "Ironvale",
+      "ownerId": "albion",
+      "populationIds": ["ironvale-laborers", "ironvale-artisans"],
+      "outputsPerTick": {
+        "iron": 24,
+        "coal": 20,
+        "tools": 8
+      },
+      "stockpile": {
+        "iron": 18,
+        "coal": 25,
+        "tools": 10
+      },
+      "infrastructure": 0.50
+    }
+  ],
+  "pops": [
+    {
+      "id": "northshire-farmers",
+      "provinceId": "northshire",
+      "popClass": "farmers",
+      "size": 42000,
+      "cashReserve": 250,
+      "militancy": 0.10,
+      "consciousness": 0.20,
+      "literacy": 0.30,
+      "lifeNeeds": { "grain": 0.8, "fish": 0.1 },
+      "everydayNeeds": { "tools": 0.03 },
+      "luxuryNeeds": {}
+    },
+    {
+      "id": "ironvale-laborers",
+      "provinceId": "ironvale",
+      "popClass": "laborers",
+      "size": 26000,
+      "cashReserve": 180,
+      "militancy": 0.12,
+      "consciousness": 0.14,
+      "literacy": 0.20,
+      "lifeNeeds": { "grain": 0.7, "fish": 0.15 },
+      "everydayNeeds": { "coal": 0.05, "tools": 0.02 },
+      "luxuryNeeds": {}
+    },
+    {
+      "id": "ironvale-artisans",
+      "provinceId": "ironvale",
+      "popClass": "artisans",
+      "size": 8000,
+      "cashReserve": 300,
+      "militancy": 0.08,
+      "consciousness": 0.25,
+      "literacy": 0.45,
+      "lifeNeeds": { "grain": 0.5, "fish": 0.2 },
+      "everydayNeeds": { "tools": 0.08, "coal": 0.04 },
+      "luxuryNeeds": {}
+    }
+  ]
+}

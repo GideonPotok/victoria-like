@@ -1,0 +1,236 @@
+{
+  "scenario": {
+    "name": "Phase 1 Albion Demo",
+    "description": "Small public demo scenario: one playable country, two provinces, staple goods, industrial inputs, POP pressure, and visible market movement.",
+    "startDate": "1836-01-01",
+    "countries": [
+      {
+        "name": "Albion",
+        "tag": "ALB",
+        "taxRate": 22,
+        "poorTaxRate": 0.22,
+        "middleTaxRate": 0.18,
+        "richTaxRate": 0.14,
+        "educationSpending": 0.55,
+        "militarySpending": 0.35,
+        "administrationSpending": 0.45
+      }
+    ],
+    "markets": [
+      {
+        "name": "Albion Market",
+        "goods": {
+          "grain": 1.0,
+          "fish": 1.2,
+          "iron": 2.4,
+          "coal": 2.1,
+          "timber": 1.8,
+          "cotton": 1.6,
+          "fabric": 2.7,
+          "clothes": 3.2,
+          "furniture": 3.6,
+          "liquor": 2.8,
+          "tools": 4.5,
+          "luxury_clothes": 8.0,
+          "luxury_furniture": 8.5,
+          "steel": 5.0,
+          "cement": 3.0
+        }
+      }
+    ],
+    "players": [
+      {
+        "id": "10000000-0000-0000-0000-000000000001",
+        "username": "albion-player",
+        "controls": "ALB",
+        "password": "alb123"
+      }
+    ],
+    "provinces": [
+      {
+        "name": "Northshire",
+        "owner": "ALB",
+        "market": "Albion Market",
+        "population": 50000,
+        "rgoType": "grain_farm",
+        "outputsPerTick": {
+          "grain": 42.0,
+          "fish": 8.0
+        },
+        "pops": [
+          {
+            "size": 32000,
+            "popType": "farmers",
+            "culture": "albionese",
+            "religion": "reformed",
+            "literacy": 0.28,
+            "cash": 24,
+            "employedCount": 30000,
+            "unemployedCount": 2000,
+            "lifeNeedsFulfillment": 0.86,
+            "everydayNeedsFulfillment": 0.58,
+            "luxuryNeedsFulfillment": 0.08
+          },
+          {
+            "size": 5000,
+            "popType": "soldiers",
+            "culture": "albionese",
+            "religion": "reformed",
+            "literacy": 0.24,
+            "cash": 12,
+            "employedCount": 5000,
+            "unemployedCount": 0,
+            "lifeNeedsFulfillment": 0.82,
+            "everydayNeedsFulfillment": 0.45,
+            "luxuryNeedsFulfillment": 0.02
+          },
+          {
+            "size": 4000,
+            "popType": "clergy",
+            "culture": "albionese",
+            "religion": "reformed",
+            "literacy": 0.68,
+            "cash": 32,
+            "employedCount": 4000,
+            "unemployedCount": 0,
+            "lifeNeedsFulfillment": 0.95,
+            "everydayNeedsFulfillment": 0.72,
+            "luxuryNeedsFulfillment": 0.15
+          },
+          {
+            "size": 3000,
+            "popType": "bureaucrats",
+            "culture": "albionese",
+            "religion": "reformed",
+            "literacy": 0.62,
+            "cash": 30,
+            "employedCount": 3000,
+            "unemployedCount": 0,
+            "lifeNeedsFulfillment": 0.94,
+            "everydayNeedsFulfillment": 0.70,
+            "luxuryNeedsFulfillment": 0.12
+          },
+          {
+            "size": 6000,
+            "popType": "aristocrats",
+            "culture": "albionese",
+            "religion": "reformed",
+            "literacy": 0.52,
+            "cash": 95,
+            "employedCount": 6000,
+            "unemployedCount": 0,
+            "lifeNeedsFulfillment": 1.0,
+            "everydayNeedsFulfillment": 0.92,
+            "luxuryNeedsFulfillment": 0.38
+          }
+        ]
+      },
+      {
+        "name": "Ironvale",
+        "owner": "ALB",
+        "market": "Albion Market",
+        "population": 36000,
+        "rgoType": "iron_mine",
+        "outputsPerTick": {
+          "iron": 18.0,
+          "coal": 14.0,
+          "tools": 3.0
+        },
+        "pops": [
+          {
+            "size": 19000,
+            "popType": "laborers",
+            "culture": "albionese",
+            "religion": "reformed",
+            "literacy": 0.22,
+            "cash": 18,
+            "employedCount": 17000,
+            "unemployedCount": 2000,
+            "lifeNeedsFulfillment": 0.80,
+            "everydayNeedsFulfillment": 0.50,
+            "luxuryNeedsFulfillment": 0.03
+          },
+          {
+            "size": 9000,
+            "popType": "craftsmen",
+            "culture": "albionese",
+            "religion": "reformed",
+            "literacy": 0.36,
+            "cash": 26,
+            "employedCount": 8200,
+            "unemployedCount": 800,
+            "lifeNeedsFulfillment": 0.84,
+            "everydayNeedsFulfillment": 0.62,
+            "luxuryNeedsFulfillment": 0.07
+          },
+          {
+            "size": 3500,
+            "popType": "clerks",
+            "culture": "albionese",
+            "religion": "reformed",
+            "literacy": 0.58,
+            "cash": 38,
+            "employedCount": 3300,
+            "unemployedCount": 200,
+            "lifeNeedsFulfillment": 0.92,
+            "everydayNeedsFulfillment": 0.76,
+            "luxuryNeedsFulfillment": 0.18
+          },
+          {
+            "size": 3000,
+            "popType": "artisans",
+            "culture": "albionese",
+            "religion": "reformed",
+            "literacy": 0.46,
+            "cash": 44,
+            "employedCount": 3000,
+            "unemployedCount": 0,
+            "lifeNeedsFulfillment": 0.90,
+            "everydayNeedsFulfillment": 0.74,
+            "luxuryNeedsFulfillment": 0.16,
+            "artisanProducedGood": "tools",
+            "artisanDaysUntilReconsider": 21
+          },
+          {
+            "size": 1500,
+            "popType": "capitalists",
+            "culture": "albionese",
+            "religion": "reformed",
+            "literacy": 0.64,
+            "cash": 120,
+            "employedCount": 1500,
+            "unemployedCount": 0,
+            "lifeNeedsFulfillment": 1.0,
+            "everydayNeedsFulfillment": 0.96,
+            "luxuryNeedsFulfillment": 0.44
+          }
+        ]
+      }
+    ],
+    "factories": [
+      {
+        "country": "ALB",
+        "province": "Ironvale",
+        "type": "steel_mill",
+        "level": 1,
+        "employedCraftsmen": 4200,
+        "employedClerks": 900,
+        "inputGoods": {
+          "coal": 0.45,
+          "iron": 0.45
+        },
+        "outputGood": "steel",
+        "outputPerTick": 6.0,
+        "cashReserve": 80.0
+      }
+    ],
+    "armies": [
+      {
+        "country": "ALB",
+        "location": "Northshire",
+        "soldiers": 5000,
+        "morale": 0.85
+      }
+    ]
+  }
+}

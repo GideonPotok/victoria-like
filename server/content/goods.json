@@ -1,0 +1,17 @@
+[
+  { "id": "grain", "displayName": "Grain", "basePrice": 1.0, "category": "food" },
+  { "id": "fish", "displayName": "Fish", "basePrice": 1.2, "category": "food" },
+  { "id": "iron", "displayName": "Iron", "basePrice": 2.4, "category": "raw" },
+  { "id": "coal", "displayName": "Coal", "basePrice": 2.1, "category": "raw" },
+  { "id": "timber", "displayName": "Timber", "basePrice": 1.8, "category": "raw" },
+  { "id": "cotton", "displayName": "Cotton", "basePrice": 1.6, "category": "raw" },
+  { "id": "fabric", "displayName": "Fabric", "basePrice": 2.7, "category": "manufactured" },
+  { "id": "clothes", "displayName": "Clothes", "basePrice": 3.2, "category": "consumer" },
+  { "id": "furniture", "displayName": "Furniture", "basePrice": 3.6, "category": "consumer" },
+  { "id": "liquor", "displayName": "Liquor", "basePrice": 2.8, "category": "consumer" },
+  { "id": "tools", "displayName": "Tools", "basePrice": 4.5, "category": "industrial" },
+  { "id": "luxury_clothes", "displayName": "Luxury Clothes", "basePrice": 8.0, "category": "luxury" },
+  { "id": "luxury_furniture", "displayName": "Luxury Furniture", "basePrice": 8.5, "category": "luxury" },
+  { "id": "steel", "displayName": "Steel", "basePrice": 5.0, "category": "industrial" },
+  { "id": "cement", "displayName": "Cement", "basePrice": 3.0, "category": "industrial" }
+]

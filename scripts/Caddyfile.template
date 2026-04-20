@@ -1,0 +1,28 @@
+# Caddy reverse proxy config
+# Copy to /etc/caddy/Caddyfile
+# Replace DOMAIN with your actual domain (e.g., victoria.example.com)
+# Then: sudo systemctl reload caddy
+
+DOMAIN {
+    # Reverse proxy to the local .NET server
+    reverse_proxy 127.0.0.1:8080 {
+        # WebSocket support (automatic)
+        header_up Host {host}
+        header_up X-Real-IP {remote_host}
+        header_up X-Forwarded-For {remote_host}
+        header_up X-Forwarded-Proto {scheme}
+    }
+
+    # Compression
+    encode gzip
+
+    # Security headers
+    header / {
+        X-Frame-Options "SAMEORIGIN"
+        X-Content-Type-Options "nosniff"
+        X-XSS-Protection "1; mode=block"
+        Referrer-Policy "strict-origin-when-cross-origin"
+    }
+}
+
+# Automatic HTTPS via Let's Encrypt, cert renewal handled by Caddy
