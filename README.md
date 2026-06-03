@@ -7,8 +7,6 @@
 
 Victoria-Like is an open-source simulation about industrial society: POPs earn wages, buy goods, suffer shortages, switch jobs, and create political pressure through material conditions. The .NET server owns all world state; Unity presents it; the codebase is structured so you can read, run, and modify the simulation without reverse-engineering it.
 
-This is **not** a Victoria II remake. There are no Paradox assets, event text, map data, or branding. The goal is to capture the *kind of coupled systems* that make 19th-century grand strategy interesting — society, production, markets, budgets, politics, armies, and state capacity pressing on each other — in code you can inspect.
-
 > **Status:** pre-alpha. The core POP/economy/budget loop runs end to end; military, war, diplomacy, and the Unity client are early or partial. See [docs/current_status.md](docs/current_status.md) for the honest breakdown.
 
 ![Victoria-Like demo: watching Albion's treasury tick down via the REST API](docs/assets/demo.gif)
