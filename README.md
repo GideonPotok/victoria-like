@@ -9,10 +9,6 @@ Victoria-Like is an open-source simulation about industrial society: POPs earn w
 
 > **Status:** pre-alpha. The core POP/economy/budget loop runs end to end; military, war, diplomacy, and the Unity client are early or partial. See [docs/current_status.md](docs/current_status.md) for the honest breakdown.
 
-![Victoria-Like demo: watching Albion's treasury tick down via the REST API](docs/assets/demo.gif)
-
-<sub>Above: `watch -n 1 "curl -s localhost:5001/api/world/countries | jq ."` against a live `make run-albion` server. The treasury moves each tick as POP wages, taxes, and spending settle. The raw [asciinema cast](docs/assets/demo.cast) is alongside the GIF if you want to re-render it.</sub>
-
 ## Why Vic2 Fans Might Care
 
 The project is inspired by the parts of Victoria 2 that still feel structurally special — not the trappings:
