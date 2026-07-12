@@ -101,9 +101,7 @@ If you don't know where to start, read [`docs/good-first-issues.md`](docs/good-f
 
 **Vic2 research** — historical research notes that compare a mechanic in this codebase against vanilla Vic2 (cited from the wiki) are valuable. The reference scrape lives under [`docs/vic2_reference/`](docs/vic2_reference/) and [`wiki/`](wiki/).
 
-## What This Roadmap Doesn't Promise
-
-The project does **not** promise:
+## What This Roadmap Is Missing (Contributors welcome)
 
 - A full historical 1836 scenario.
 - A balanced economy on large scenarios.
@@ -112,7 +110,6 @@ The project does **not** promise:
 - Horizontal server scaling or thousands of concurrent clients.
 - A stable public command protocol.
 
-Those become real after the substrate is legible and the explanation surface is good enough that players can trust what they're seeing. See [`docs/non_goals_q1.md`](docs/non_goals_q1.md) for the explicit deferred list.
 
 ## Launch Principle
 

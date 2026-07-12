@@ -11,28 +11,36 @@ Victoria-Like is an open-source simulation about industrial society: POPs earn w
 
 ## Why Vic2 Fans Might Care
 
-The project is inspired by the parts of Victoria 2 that still feel structurally special — not the trappings:
+The project is inspired by the GVGOAT, Victoria 2:
 
 - **POPs are the heart of society.** Income, needs, literacy, militancy, consciousness, and promotion/demotion all run per POP group.
 - **Politics emerges from material conditions.** Reform pressure is a downstream metric of unmet needs and POP attitudes, not a hand-scripted event.
-- **Markets, production, war, and budgets are linked.** A factory shortage moves prices, which moves POP cash, which moves militancy, which moves reform pressure.
-- **The simulation is meant to be explainable.** Server-side explain/preview endpoints exist so the question "*why* did this price change?" has an answer.
-- **The architecture is online-shaped from day one.** Server-authoritative, deterministic, snapshot-recoverable, command-validated, WebSocket-broadcastable. Victoria II was a beloved single-player game; this is built like a small live service.
+- **Markets, production, war, and budgets are linked and endogenous.** A factory shortage moves prices, which moves POP cash, which moves militancy, which moves reform pressure.
 
-See [docs/for-victoria-2-fans.md](docs/for-victoria-2-fans.md) for the longer pitch.
+Additional principles:
+- **The simulation is meant to be explainable.** Server-side explain/preview endpoints exist so the question "*why* did this price change?" has an answer.
+
+Unlike Victoria II, though:
+- **This architecture is online-native** Server-authoritative, deterministic, snapshot-recoverable, command-validated, WebSocket-broadcastable. Victoria II was a beloved single-player game; this is built like a small live service.
+
+
+See [docs/for-victoria-2-fans.md](docs/for-victoria-2-fans.md) for more.
 
 ## What Works Today
 
 - Server-authoritative fixed-tick simulation (1 in-game day per tick).
-- POPs with needs, purchasing, employment, unemployment, literacy, militancy, consciousness, and promotion/demotion.
-- RGO, factory, and artisan production feeding national markets.
-- Market prices, shortages, taxation, budget spending, treasury changes.
 - Persistence + restart recovery on PostgreSQL, Redis health checks.
 - REST API + WebSocket updates + admin and explanation endpoints.
-- Unity v2 inspection UI for countries, provinces, POPs, market prices, treasury, tax rate, RGO output, and factories.
 - Three scenarios shipped: `tiny-2country`, `phase1-albion-server`, and `medium-8country`.
 - xUnit coverage of loaders, simulation stages, command handling, persistence, explanation, and invariants.
 - NBomber + fake-client soak/load harnesses.
+
+## What works, but could be richer
+
+- Unity v2 inspection UI for countries, provinces, POPs, market prices, treasury, tax rate, RGO output, and factories.
+- POPs with needs, purchasing, employment, unemployment, literacy, militancy, consciousness, and promotion/demotion.
+- RGO, factory, and artisan production feeding national markets.
+- Market prices, shortages, taxation, budget spending, treasury changes.
 
 What's **not** ready: full historical scenarios, deep diplomacy / spheres / crises, polished Unity UX, balanced economy, and the WebSocket integration on the client side (the server broadcasts; the Unity client still polls REST for most views). See [docs/current_status.md](docs/current_status.md) and the trackers under [docs/status/](docs/status/).
 
