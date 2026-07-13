@@ -1,13 +1,13 @@
 # Victoria-Like
 
-> A pre-alpha, server-authoritative grand-strategy sandbox inspired by Victoria II's coupled POP, economy, and politics simulation. Built to be inspectable, testable, and moddable from day one.
+> A pre-alpha, server-authoritative grand-strategy sandbox inspired by Victoria II. 
 
 [![.NET CI](https://github.com/GideonPotok/victoria-like/actions/workflows/dotnet.yml/badge.svg)](https://github.com/GideonPotok/victoria-like/actions/workflows/dotnet.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 Victoria-Like is an open-source simulation about industrial society: POPs earn wages, buy goods, suffer shortages, switch jobs, and create political pressure through material conditions. The .NET server owns all world state; Unity presents it; the codebase is structured so you can read, run, and modify the simulation without reverse-engineering it.
 
-> **Status:** pre-alpha. The core POP/economy/budget loop runs end to end; military, war, diplomacy, and the Unity client are early or partial. See [docs/current_status.md](docs/current_status.md) for the honest breakdown.
+> **Status:** See [docs/current_status.md](docs/current_status.md). 
 
 ## Why Vic2 Fans Might Care
 
