@@ -1,13 +1,13 @@
 # Victoria-Like
 
-> A pre-alpha, server-authoritative grand-strategy sandbox inspired by Victoria II's coupled POP, economy, and politics simulation. Built to be inspectable, testable, and moddable from day one.
+> A pre-alpha, server-authoritative grand-strategy sandbox inspired by Victoria II. 
 
 [![.NET CI](https://github.com/GideonPotok/victoria-like/actions/workflows/dotnet.yml/badge.svg)](https://github.com/GideonPotok/victoria-like/actions/workflows/dotnet.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 Victoria-Like is an open-source simulation about industrial society: POPs earn wages, buy goods, suffer shortages, switch jobs, and create political pressure through material conditions. The .NET server owns all world state; Unity presents it; the codebase is structured so you can read, run, and modify the simulation without reverse-engineering it.
 
-> **Status:** pre-alpha. The core POP/economy/budget loop runs end to end; military, war, diplomacy, and the Unity client are early or partial. See [docs/current_status.md](docs/current_status.md) for the honest breakdown.
+> **Status:** See [docs/current_status.md](docs/current_status.md). 
 
 ## Why Vic2 Fans Might Care
 
@@ -87,11 +87,7 @@ Tests are pure C# — they do **not** require a running server, Docker, or any n
 
 ## Demo Slice
 
-The Phase 1 server demo scenario is `server/content/scenarios/phase1-albion-server.json`: one playable country, a few provinces, staple goods, industrial inputs, POP groups, stockpiles, and visible economic pressure. It is intentionally small — the goal is to show the bones of the simulation, not to ship a finished game. See [docs/demo_script.md](docs/demo_script.md) for the demo flow.
-
-## See It Running
-
-The GIFs below are re-rendered from asciinema recordings (`agg --theme monokai`) against a live `make run-albion` server. The raw `.cast` file for each sits next to its GIF in [docs/assets/](docs/assets/) if you want to replay or re-render one yourself.
+The Phase 1 server demo scenario is `server/content/scenarios/phase1-albion-server.json`: one playable country, a few provinces, staple goods, industrial inputs, POP groups, stockpiles, and visible economic pressure. It is intentionally small — the goal is to show the bones of the simulation, not to ship a finished game. See [docs/demo_script.md](docs/demo_script.md) for the demo flow.\
 
 ### 1. Bring the stack up
 
@@ -150,6 +146,12 @@ The GIFs below are re-rendered from asciinema recordings (`agg --theme monokai`)
 ![Terminal recording: grabbing a country and province ID, then calling the country and province inspect endpoints, a budget preview, and construction options](docs/assets/demo_second_terminal_grab_ids_then_inspect.gif)
 
 <sub>Grab a country and province ID from the list endpoints, then drill in: `/countries/{id}/inspect`, `/provinces/{id}`, `/provinces/{id}/inspect`, `/countries/{id}/budget-preview`, and `/provinces/{id}/construction-options`. Preview endpoints are read-only — they never mutate world state. Raw cast: [demo_second_terminal_grab_ids_then_inspect.cast](docs/assets/demo_second_terminal_grab_ids_then_inspect.cast).</sub>
+
+### 9. Inspect the world in Unity
+
+![Unity client recording: inspecting countries, provinces, POPs, market prices, treasury, tax rate, RGO output, and factories in the v2 client](docs/assets/demo_unity_client.gif)
+
+<sub>The Unity v2 client is presentation-only: it inspects the server-owned Albion world state over REST while the simulation ticks. Sorry for not just using a screen recording. Source movie: [demo_unity_client.mov](docs/assets/demo_unity_client.mov).</sub>
 
 ## Repository Layout
 
