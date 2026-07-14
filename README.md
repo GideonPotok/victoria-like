@@ -91,9 +91,15 @@ The Phase 1 server demo scenario is `server/content/scenarios/phase1-albion-serv
 
 ## See It Running
 
-The GIFs below are re-rendered from asciinema recordings (`agg --theme monokai`) against a live `make run-albion` server. The raw `.cast` file for each sits next to its GIF in [docs/assets/](docs/assets/) if you want to replay or re-render one yourself.
+The Unity client GIF below is rendered from the source movie in [docs/assets/](docs/assets/). The terminal GIFs after it are re-rendered from asciinema recordings (`agg --theme monokai`) against a live `make run-albion` server. The raw `.cast` file for each terminal recording sits next to its GIF if you want to replay or re-render one yourself.
 
-### 1. Bring the stack up
+### 1. Inspect the world in Unity
+
+![Unity client recording: inspecting countries, provinces, POPs, market prices, treasury, tax rate, RGO output, and factories in the v2 client](docs/assets/demo_unity_client.gif)
+
+<sub>The Unity v2 client is presentation-only: it inspects the server-owned Albion world state over REST while the simulation ticks. Source movie: [demo_unity_client.mov](docs/assets/demo_unity_client.mov).</sub>
+
+### 2. Bring the stack up
 
 <details>
 <summary><code>make up</code> → <code>make test-connections</code> → <code>make run-albion</code> — click to expand (~4 MB)</summary>
@@ -104,7 +110,7 @@ The GIFs below are re-rendered from asciinema recordings (`agg --theme monokai`)
 
 <sub>`make up` pulls and starts Postgres and Redis via Docker Compose, `make test-connections` confirms both are reachable, and `make run-albion` resets the world, seeds the Albion scenario, and starts the fixed-tick loop, ending on `Now listening on: http://0.0.0.0:5001`. Raw cast: [demo_server_setup.cast](docs/assets/demo_server_setup.cast).</sub>
 
-### 2. Restart the server and resume from the last snapshot
+### 3. Restart the server and resume from the last snapshot
 
 <details>
 <summary>Restart via <code>dotnet run</code>, then reset into <code>make run-medium</code> — click to expand (~10 MB)</summary>
@@ -115,37 +121,37 @@ The GIFs below are re-rendered from asciinema recordings (`agg --theme monokai`)
 
 <sub>Killing and restarting the server process — without a world reset — proves persistence: it logs `World restored from snapshot: tick 875` and picks the simulation back up exactly where it left off. The second half resets into `make run-medium` to show the same server on the larger 8-country scenario. Raw cast: [demo_server_resume.cast](docs/assets/demo_server_resume.cast).</sub>
 
-### 3. Watch the economy tick live
+### 4. Watch the economy tick live
 
 ![Terminal recording: a curl health check, then a countries query, then watching the countries endpoint every second as Albion's treasury ticks down](docs/assets/demo_second_terminal.gif)
 
 <sub>`curl /health`, then `curl /api/world/countries | jq`, then `watch -n 1 "curl -s .../countries | jq ."` — the treasury moves every tick as POP wages, taxes, and spending settle. Raw cast: [demo_second_terminal.cast](docs/assets/demo_second_terminal.cast).</sub>
 
-### 4. Inspect world state
+### 5. Inspect world state
 
 ![Terminal recording: querying world summary, countries, provinces, market prices, auto-generated events, buildings, armies, and wars endpoints](docs/assets/demo_second_terminal_world_state.gif)
 
 <sub>A tour of the read-only world endpoints: `/api/world/summary`, `/countries`, `/provinces`, `/market` (per-good price/supply/demand), and `/events` — the server's own auto-generated alerts for a treasury deficit, a fish shortage, rising unemployment, and militancy — plus `/buildings/queue`, `/armies`, and `/wars`. Raw cast: [demo_second_terminal_world_state.cast](docs/assets/demo_second_terminal_world_state.cast).</sub>
 
-### 5. Admin / ops view
+### 6. Admin / ops view
 
 ![Terminal recording: querying admin summary, market, tick-profile, and per-country admin endpoints](docs/assets/demo_second_terminal_admin_views.gif)
 
 <sub>`/api/admin/summary` (tick timing, health checks, snapshot history), `/api/admin/market`, `/api/admin/tick-profile`, and `/api/admin/countries/{id}` — the operational view used for debugging the simulation rather than playing it. Raw cast: [demo_second_terminal_admin_views.cast](docs/assets/demo_second_terminal_admin_views.cast).</sub>
 
-### 6. Ask "why" — the explain endpoints
+### 7. Ask "why" — the explain endpoints
 
 ![Terminal recording: calling explain endpoints for a good's price, a country's budget, and a province's employment, each returning a human-readable list of contributing factors](docs/assets/demo_second_terminal_explain_endpoints.gif)
 
 <sub>`/api/explain/good/grain`, `/api/explain/good/iron`, `/api/explain/country/{id}/budget`, and `/api/explain/province/{id}/employment` — each returns a `factors` list (supply vs. demand, price pressure, tax rates, spending) backing the headline number. This is the "why did this change?" answer the architecture is built to support — see [Preview is not authority](#architecture-hard-rules). Raw cast: [demo_second_terminal_explain_endpoints.cast](docs/assets/demo_second_terminal_explain_endpoints.cast).</sub>
 
-### 7. Explain a single POP's needs
+### 8. Explain a single POP's needs
 
 ![Terminal recording: grabbing a province ID, pulling a POP ID out of the province inspect payload, then calling the explain endpoint for that POP's needs](docs/assets/demo_second_terminal_explain_endpoints_pop_needs.gif)
 
 <sub>Same explain API, scoped to one POP group: grab a province ID, pull a `popId` out of `/api/world/provinces/{id}/inspect`, then call `/api/explain/pop/{id}/needs`. Raw cast: [demo_second_terminal_explain_endpoints_pop_needs.cast](docs/assets/demo_second_terminal_explain_endpoints_pop_needs.cast).</sub>
 
-### 8. Grab IDs, then drill into the inspector
+### 9. Grab IDs, then drill into the inspector
 
 ![Terminal recording: grabbing a country and province ID, then calling the country and province inspect endpoints, a budget preview, and construction options](docs/assets/demo_second_terminal_grab_ids_then_inspect.gif)
 
