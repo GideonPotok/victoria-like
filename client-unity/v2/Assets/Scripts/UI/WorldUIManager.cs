@@ -711,10 +711,12 @@ namespace VictoriaLike.Client.UI
                     {
                         var employed = pop.size > 0 ? (float)pop.employed_count / pop.size : 0f;
                         info +=
-                            $"\n  {pop.pop_type} ({pop.strata}): {pop.size:N0} ({pop.population_share:P0})" +
-                            $"  {pop.culture}/{pop.religion}" +
-                            $"  emp {employed:P0}  lit {pop.literacy:P0}  mil {pop.militancy:F2}" +
-                            $"  life {pop.life_needs_fulfillment:P0}  ev {pop.everyday_needs_fulfillment:P0}  lux {pop.luxury_needs_fulfillment:P0}";
+                            $"\n  {pop.pop_type} ({pop.strata}): {pop.size:N0}" +
+                            $"  emp {pop.employed_count:N0}/unem {pop.unemployed_count:N0}" +
+                            $"  mil {pop.militancy:F1}  lit {pop.literacy:P0}" +
+                            $"  life {pop.life_needs_fulfillment:P0}" +
+                            $"  ev {pop.everyday_needs_fulfillment:P0}" +
+                            $"  lux {pop.luxury_needs_fulfillment:P0}";
                     }
                 }
 
